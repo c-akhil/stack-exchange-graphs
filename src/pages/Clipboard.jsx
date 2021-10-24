@@ -15,7 +15,7 @@ const copyToClipboard = debounce((text) => {
 
 export default function Clipboard() {
 
-    const [copyText, setCopyText] = useState("");
+    const [copyText, setCopyText] = useState(undefined);
     const history = useHistory();
     const location = useLocation();
     console.log(location)
@@ -27,7 +27,7 @@ export default function Clipboard() {
             params.append("copyText", copyText);
             history.push(`/clipboard?${params.toString()}`);
         } else {
-            if (location.search) {
+            if (location.search && copyText === undefined) {
                 history.push(`/clipboard${location.search}`);
                 const data = /copyText=(.*)/.exec(location.search)
                 if (data && data[1]) {
@@ -53,7 +53,7 @@ export default function Clipboard() {
                         <div className="card-body">
                             <div className="input-group">
                                 <textarea
-                                    value={copyText}
+                                    value={copyText || ''}
                                     onChange={(e) => {
                                         const inputText = e.target.value;
                                         setCopyText(inputText);
