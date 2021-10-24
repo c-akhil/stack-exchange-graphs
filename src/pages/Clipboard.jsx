@@ -40,7 +40,7 @@ export default function Clipboard() {
                 history.push(`/clipboard?${params.toString()}`);
             }
         }
-    }, [copyText, history])
+    }, [copyText, history, location.search])
 
     return (
         <ErrorBoundary>
