@@ -17,6 +17,9 @@ export default function Routes() {
                 <Route path="/clipboard">
                     <Clipboard />
                 </Route>
+                <Route path="/clipboard?">
+                    <Clipboard />
+                </Route>
                 <Route path="/camera">
                     <Camera />
                 </Route>
