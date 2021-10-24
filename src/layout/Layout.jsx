@@ -5,9 +5,7 @@ export default function Layout({ children }) {
     return (
         <React.Fragment>
             <Navbar />
-            <div>
-                {children}
-            </div>
+            {children}
         </React.Fragment>
     )
 }
